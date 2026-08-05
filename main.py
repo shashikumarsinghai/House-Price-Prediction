@@ -1,18 +1,16 @@
-from src.config import RAW_DATA_PATH
-from src.utils import load_dataset
+from src.train import train_model
+
 
 def main():
 
-    # Load the dataset
-    df = load_dataset(RAW_DATA_PATH)
+    model, X_test, y_test = train_model()
 
     print("=" * 50)
-    print("House Price Prediction Project")
+    print("Model Training Completed")
     print("=" * 50)
 
-    # Display the first few rows of the dataset
-    print(df.head())
+    print(model)
+
 
 if __name__ == "__main__":
     main()
-
