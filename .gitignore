@@ -9,7 +9,7 @@ __pycache__/
 .ipynb_checkpoints/
 
 # Model Files
-*.pkl
+models/*.pkl
 *.joblib
 
 # VS Code
@@ -18,3 +18,7 @@ __pycache__/
 # OS Files
 .DS_Store
 Thumbs.db
+
+# Outputs
+outputs/plots/
+outputs/metrics/
