@@ -31,8 +31,6 @@ PROCESSED_DATA_PATH = PROCESSED_DATA_DIR / "housing_processed.csv"
 
 MODEL_DIR = BASE_DIR / "models"
 
-MODEL_FILE = MODEL_DIR / "house_price_model.pkl"
-
 #===============================#
 # Outputs
 #===============================#
