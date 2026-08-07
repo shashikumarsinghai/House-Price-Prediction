@@ -6,10 +6,25 @@ PROJECT: House Price Prediction
 """
 
 import joblib
+import pandas as pd
+
 from src.config import MODEL_DIR
 
 # Default model
 MODEL_PATH = MODEL_DIR / "linear_regression.pkl"
+
+# Feature order used during training
+FEATURE_NAMES = [
+    "area",
+    "bedrooms",
+    "bathrooms",
+    "stories",
+    "mainroad",
+    "guestroom",
+    "basement",
+    "hotwaterheating",
+    "airconditioning",
+]
 
 def load_model():
     """
@@ -31,18 +46,10 @@ def predict_price(features):
     ----------
     features : list or array-like
         Input features in the following order:
+        area, bedrooms, bathrooms, stories,
+        mainroad, guestroom, basement,
+        hotwaterheating, airconditioning
 
-        [
-            area,
-            bedrooms,
-            bathrooms,
-            stories,
-            mainroad,
-            guestroom,
-            basement,
-            hotwaterheating,
-            airconditioning
-        ]
 
     Returns
     -------
@@ -50,8 +57,20 @@ def predict_price(features):
         Predicted house price.
     """
 
+    if len(features) != len(FEATURE_NAMES):
+        raise ValueError(
+            f"Expected {len(FEATURE_NAMES)} features, "
+            f"but received {len(features)}."
+        )
+
     model = load_model()
 
-    prediction = model.predict([features])
+    # Create DataFrame with the same feature names
+    input_data = pd.DataFrame(
+        [features],
+        columns=FEATURE_NAMES
+    )
 
-    return prediction[0]
+    prediction = model.predict(input_data)
+
+    return float(prediction[0])
