@@ -8,10 +8,6 @@ __pycache__/
 # Jupyter
 .ipynb_checkpoints/
 
-# Model Files
-models/*.pkl
-*.joblib
-
 # VS Code
 .vscode/
 
