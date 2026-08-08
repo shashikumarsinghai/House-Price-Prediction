@@ -1,237 +1,362 @@
-\# 🏠 House Price Prediction
+# 🏠 House Price Prediction
 
-A Machine Learning project that predicts house prices based on different property features.
+A complete Machine Learning project that predicts house prices based on property features using multiple regression models and a Streamlit web application.
 
+---
 
-\## 📌 Project Overview
+## 📌 About the Project
 
+This project demonstrates an end-to-end Machine Learning workflow for house price prediction.
 
-This project implements a complete Machine Learning pipeline for house price prediction.
+The project covers:
 
-The project includes:
+- Data loading
+- Data preprocessing
+- Categorical feature encoding
+- Train-test splitting
+- Multiple machine learning models
+- Model evaluation
+- Data visualization
+- House price prediction
+- Streamlit web application
 
+The trained models are saved and can be used for making predictions through the prediction module and web application.
 
-\- Data preprocessing
+---
 
-\- Multiple Machine Learning models
+## 🎯 Project Objectives
 
-\- Model evaluation
+The main objectives of this project are:
 
-\- Data visualization
+1. Prepare and preprocess the housing dataset.
+2. Train multiple regression models.
+3. Compare model performance using evaluation metrics.
+4. Visualize model predictions and feature importance.
+5. Build a reusable prediction module.
+6. Create an interactive Streamlit application.
 
-\- House price prediction
+---
 
-\- Streamlit web application
+## 📊 Dataset
 
+The project uses a housing dataset containing **545 records and 10 columns**.
 
-\## 🤖 Machine Learning Models
+### Features
 
+| Feature | Description |
+|---|---|
+| `area` | Area of the house in square feet |
+| `bedrooms` | Number of bedrooms |
+| `bathrooms` | Number of bathrooms |
+| `stories` | Number of stories |
+| `mainroad` | Whether the house is connected to the main road |
+| `guestroom` | Whether the house has a guest room |
+| `basement` | Whether the house has a basement |
+| `hotwaterheating` | Whether hot water heating is available |
+| `airconditioning` | Whether air conditioning is available |
 
-The following models are trained and evaluated:
+### Target
 
-1\. Linear Regression
+`price` — House price.
 
-2\. Decision Tree Regressor
+---
 
-3\. Random Forest Regressor
+## 🤖 Machine Learning Models
 
+Three regression models are trained and evaluated:
 
-Based on the evaluation results, \*\*Linear Regression\*\* currently provides the best performance among the tested models.
+### 1. Linear Regression
 
+A simple and interpretable regression model used as the primary baseline model.
 
-\## 📊 Model Performance
+### 2. Decision Tree Regressor
 
+A tree-based model that learns decision rules from the training data.
+
+### 3. Random Forest Regressor
+
+An ensemble model that combines multiple decision trees to improve generalization.
+
+---
+
+## 📈 Model Performance
+
+The models were evaluated using:
+
+- Mean Absolute Error (MAE)
+- Mean Squared Error (MSE)
+- Root Mean Squared Error (RMSE)
+- R² Score
 
 | Model | MAE | RMSE | R² Score |
-
 |---|---:|---:|---:|
-
-| Linear Regression | 1,029,305.71 | 1,413,204.62 | 0.6049 |
-
+| Linear Regression | 1,029,305.71 | 1,413,204.62 | **0.6049** |
 | Decision Tree | 1,282,696.27 | 1,832,966.88 | 0.3353 |
-
 | Random Forest | 1,104,205.66 | 1,496,229.40 | 0.5571 |
 
+Based on the current evaluation results, **Linear Regression achieved the highest R² score** among the tested models.
 
+> Note: Model performance can vary depending on the dataset, preprocessing, and training configuration.
 
-\## 📁 Project Structure
+---
 
+## 📊 Visualizations
 
+The project generates the following visualizations:
+
+### Actual vs Predicted
+
+Compares the actual house prices with the prices predicted by the model.
+
+### Residual Plot
+
+Shows the difference between actual and predicted prices.
+
+### Decision Tree Feature Importance
+
+Shows the relative importance of features used by the Decision Tree model.
+
+### Random Forest Feature Importance
+
+Shows the relative importance of features used by the Random Forest model.
+
+Generated plots are stored in:
 
 ```text
+outputs/plots/
+```
 
+---
+
+## 📁 Project Structure
+
+```text
 House-Price-Prediction/
-
 │
-
 ├── app/
-
 │   └── app.py
-
 │
-
 ├── data/
-
 │   ├── raw/
-
 │   │   └── Housing.csv
-
 │   └── processed/
-
 │
-
 ├── models/
-
-│   ├── linear\_regression.pkl
-
-│   ├── decision\_tree.pkl
-
-│   └── random\_forest.pkl
-
+│   ├── linear_regression.pkl
+│   ├── decision_tree.pkl
+│   └── random_forest.pkl
 │
-
 ├── notebooks/
-
 │
-
 ├── outputs/
-
 │   ├── metrics/
-
 │   └── plots/
-
 │
-
 ├── src/
-
-│   ├── \_\_init\_\_.py
-
+│   ├── __init__.py
 │   ├── config.py
-
 │   ├── evaluate.py
-
 │   ├── model.py
-
 │   ├── predict.py
-
 │   ├── preprocess.py
-
 │   ├── train.py
-
 │   ├── utils.py
-
 │   └── visualize.py
-
 │
-
 ├── .gitignore
-
 ├── LICENSE
-
 ├── main.py
-
 ├── README.md
-
 └── requirements.txt
+```
 
+---
 
+## ⚙️ Technologies Used
 
-\# Dataset Features
+- **Python**
+- **Pandas** — Data processing
+- **NumPy** — Numerical operations
+- **Scikit-learn** — Machine Learning
+- **Matplotlib** — Data visualization
+- **Joblib** — Model saving and loading
+- **Streamlit** — Web application
 
-The model uses the following features:
+---
 
-Area
+## 🛠️ Installation
 
-Bedrooms
+### 1. Clone the repository
 
-Bathrooms
+```bash
+git clone <YOUR_GITHUB_REPOSITORY_URL>
+```
 
-Stories
+### 2. Open the project directory
 
-Main Road
+```bash
+cd House-Price-Prediction
+```
 
-Guest Room
+### 3. Create a virtual environment
 
-Basement
+```bash
+python -m venv .venv
+```
 
-Hot Water Heating
+### 4. Activate the virtual environment
 
-Air Conditioning
+Windows PowerShell:
 
+```powershell
+.venv\Scripts\Activate.ps1
+```
 
+### 5. Install dependencies
 
-The target variable is:
+```bash
+pip install -r requirements.txt
+```
 
-Price
+---
 
-⚙️ Installation
+## 🚀 Run the Machine Learning Pipeline
 
-Clone the repository and open the project folder.
+Run the complete training and evaluation pipeline:
 
+```bash
+python main.py
+```
 
+This will:
 
-Create a virtual environment: python -m venv .venv
+1. Load the dataset.
+2. Preprocess the data.
+3. Train the models.
+4. Save the trained models.
+5. Evaluate the models.
+6. Display the evaluation metrics.
 
-Activate the environment on Windows: .venv\\Scripts\\Activate.ps1
+---
 
-Install the required dependencies: pip install -r requirements.txt
+## 📊 Generate Visualizations
 
-🚀 Run the Machine Learning Pipeline
+Run:
 
-From the project root: python main.py
+```bash
+python -m src.visualize
+```
 
+The generated plots will be saved inside:
 
-This runs the training and evaluation pipeline.
+```text
+outputs/plots/
+```
 
+---
 
-📈 Generate Visualizations
+## 🔮 Make a Prediction Using Python
 
-Run: python -m src.visualize
+The prediction module can be tested with:
 
-The generated plots are saved inside: outputs/plots/
+```bash
+python -c "from src.predict import predict_price; print(predict_price([7420, 4, 2, 3, 1, 0, 0, 0, 1]))"
+```
 
-Generated visualizations include: Actual vs Predicted
+The input features must be provided in this order:
 
-Residual Plot
+```text
+area
+bedrooms
+bathrooms
+stories
+mainroad
+guestroom
+basement
+hotwaterheating
+airconditioning
+```
 
-Decision Tree Feature Importance
+For categorical features:
 
-Random Forest Feature Importance
+```text
+1 = Yes
+0 = No
+```
 
-🔮 Make a Prediction
+---
 
-The prediction module can be tested using:
-python -c "from src.predict import predict\_price; print(predict\_price(\[7420, 4, 2, 3, 1, 0, 0, 0, 1]))"
+## 🌐 Run the Streamlit Web Application
 
-🌐 Run the Streamlit App
+Start the application using:
 
-Start the web application: python -m streamlit run app/app.py
+```bash
+python -m streamlit run app/app.py
+```
 
-The application allows users to enter house details and get a predicted house price.
+The application provides an interactive interface where users can enter house details and receive a predicted house price.
 
-\# 🛠️ Technologies Used
+### Application Features
 
-Python
+- 🏠 House details input
+- ✅ Input validation
+- 🔮 Price prediction
+- 💰 Predicted price display
+- 🖥️ Interactive Streamlit interface
 
-Pandas
+---
 
-NumPy
+## 🔄 Machine Learning Workflow
 
-Scikit-learn
+```text
+Housing Dataset
+       ↓
+Data Loading
+       ↓
+Data Preprocessing
+       ↓
+Categorical Encoding
+       ↓
+Train / Test Split
+       ↓
+Model Training
+       ↓
+Model Evaluation
+       ↓
+Visualization
+       ↓
+Prediction
+       ↓
+Streamlit Web Application
+```
 
-Matplotlib
+---
 
-Joblib
+## 📌 Future Improvements
 
-Streamlit
+Possible improvements for future versions include:
 
-👨‍💻 Author
+- Hyperparameter tuning
+- Cross-validation
+- Feature engineering
+- Trying additional regression algorithms
+- Improving model accuracy
+- Adding more visualizations
+- Deploying the Streamlit application online
+- Adding automated testing
 
-Shashi Kumar Singh
+---
 
+## 👨‍💻 Author
 
+**Shashi Kumar Singh**
 
-📄 License
+Engineering / AI & ML Student
 
-This project is for educational and learning purposes.
+---
 
+## ⭐ Project Status
+
+**Current Status: Completed Core ML Pipeline + Streamlit Application**
+
+The project currently includes data preprocessing, multiple machine learning models, evaluation, visualization, prediction functionality, and an interactive Streamlit application.
